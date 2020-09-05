@@ -1,5 +1,4 @@
-# MVP
-MVP project - mv linux command with progress bar
+# MVP - move or copy files in linux with a progress bar
 
 This project has started with the goal of making a new linux "mv" and "cp" command with a progress bar added to it, 
 indicating the ammount of data transfered (in %) and its flow rate (in MB/s).
