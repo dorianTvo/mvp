@@ -6,4 +6,6 @@ indicating the ammount of data transfered (in %) and its flow rate (in MB/s).
 This project is sure very simple but will be I hope very usefull for people who often move heavy files :) 
 (some updates are yet to come and please feel free to give us feedback)
 
-This project is an open source program written in C and provide you with a librairie to use the essential functions in your own projects 
+This project is an open source program written in C
+
+## Installation
