@@ -10,4 +10,4 @@ This project is an open source program written in C
 
 ### Installation
 
->gcc *.c -o /usr/bin/mvp
+>gcc SOURCES/*.c -o /usr/bin/mvp
