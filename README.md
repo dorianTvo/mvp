@@ -9,3 +9,5 @@ This project is sure very simple but will be I hope very usefull for people who 
 This project is an open source program written in C
 
 ### Installation
+
+>gcc *.c -o /usr/bin/mvp
