@@ -1,6 +1,5 @@
 #include "mvp_lib.h"
 
-
 int main(int argc, char *argv[]) // Fonction lancée au démarrage du script
 {
     if(argc < 4) //Si l'utilisateur n'éxecute pas correctement la commande mvp
