@@ -10,4 +10,9 @@ This project is an open source program written in C
 
 ### Installation
 
->gcc SOURCES/*.c -o /usr/bin/mvp
+>sudo gcc SOURCES/*.c -o /usr/bin/mvp
+
+Or take directly the executable
+
+>sudo cp mvp_exec /usr/bin/mvp
+
