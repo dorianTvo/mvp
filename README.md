@@ -8,6 +8,10 @@ This project is sure very simple but will be I hope very usefull for people who 
 
 This project is an open source program written in C
 
-### Installation
+## Installation
 
-> gcc *.c -o /usr/bin/mvp
+>sudo gcc SOURCES/*.c -o /usr/bin/mvp
+
+Or take directly the executable
+
+>sudo cp mvp_exec /usr/bin/mvp
