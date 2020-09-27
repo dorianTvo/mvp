@@ -51,6 +51,8 @@ int mvOrCpOneFile(char* Spath, char* Dpath, int choice) //choice = 0 -> mv, choi
 
         sec = 0;
         beforePercentage = 0;
+        percentage = 0;
+        counter = 0;
 
         do
         {
@@ -86,7 +88,7 @@ int mvOrCpOneFile(char* Spath, char* Dpath, int choice) //choice = 0 -> mv, choi
                 counter++;
                 percentage = ((float)(8192*counter)/lengthOfFile)*100;
                    
-                printf("\rProgression %.2f %% at %.2f Mo/s", percentage, speed);
+                printf("\33[2K\rProgression %.2f %% at %.2f Mo/s", percentage, speed);
                 fflush(stdout);
             }
             else
