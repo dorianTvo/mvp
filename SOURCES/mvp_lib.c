@@ -148,7 +148,7 @@ int mvOrCpOneFolder(char* Spath, char* Dpath, int choice)
             {
                 char *SpathWF = concatanation(Spath, dir->d_name);
                 char *DpathWF = concatanation(Dpath, dir->d_name);
-                printf("Moving %s \n", dir->d_name);
+                printf("\nMoving %s \n", dir->d_name);
                 mvOrCpOneFile(SpathWF, DpathWF, choice);
             }
         }
