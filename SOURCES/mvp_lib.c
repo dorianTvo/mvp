@@ -6,9 +6,19 @@
 #include "mvp_lib.h"
 
 //getFileNameFromPath permet de récupérer le nom d'un fichier à partir de son chemin
-char* getFileNameFromPath(char* path)
+char* getWithoutSlashFromPath(char* path)
 {
     for(size_t i = strlen(path) - 1; i; i--)
+    {
+        if(path[i] == '/')
+            return &path[i+1];
+    }
+    return path;
+}
+
+char* getWithSlashFromPath(char* path)
+{
+    for(size_t i = strlen(path) - 2; i; i--)
     {
         if(path[i] == '/')
             return &path[i+1];
@@ -33,7 +43,7 @@ int mvOrCpOneFile(char* Spath, char* Dpath, int choice) //choice = 0 -> mv, choi
 
     if(Dpath[strlen(Dpath) - 1] == '/')
     {
-        fileName = getFileNameFromPath(Spath);
+        fileName = getWithoutSlashFromPath(Spath);
         DPathWithFN = concatanation(Dpath, fileName);
         Dfile = fopen(DPathWithFN, "w");
         free(DPathWithFN);
@@ -127,6 +137,16 @@ int mvOrCpOneFolder(char* Spath, char* Dpath, int choice)
         {
             mkdir(Dpath, 0755);
         }
+        else
+        {
+            if(Dpath[strlen(Dpath) - 1] == '/')
+                Dpath = concatanation(concatanation(Dpath, "/"), getWithSlashFromPath(Spath));
+            else
+                Dpath = concatanation(Dpath, getWithSlashFromPath(Spath));
+
+            mkdir(Dpath, 0755); //create the directory with the original name Spath
+        }
+        
 
         while((dir = readdir(d)) != NULL)
         {
