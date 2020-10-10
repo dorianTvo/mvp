@@ -28,11 +28,11 @@ char* getWithSlashFromPath(char* path)
 
 int mvOrCpOneFile(char* Spath, char* Dpath, int choice) //choice = 0 -> mv, choice = 1 -> cp
 {
-    unsigned int counter, sec;
+    unsigned int sec;
     clock_t before, difference;
     time_t now;
     struct tm *tm;
-    long lengthOfFile;
+    unsigned long lengthOfFile, counter;
     float speed, percentage, beforePercentage;
     unsigned char buff[8192];
     size_t n, m;
@@ -182,7 +182,7 @@ int mvOrCpOneFolder(char* Spath, char* Dpath, int choice)
     return 0;
 }
 
-char* concatanation(const char *s1, const char *s2)
+char* concatenation(const char *s1, const char *s2)
 {
     char *result = malloc(strlen(s1) + strlen(s2) + 1); // +1 for the null-terminator
     // in real code you would check for errors in malloc here
