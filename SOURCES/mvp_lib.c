@@ -29,7 +29,6 @@ char* getWithSlashFromPath(char* path)
 int mvOrCpOneFile(char* Spath, char* Dpath, int choice) //choice = 0 -> mv, choice = 1 -> cp
 {
     unsigned int sec;
-    clock_t before, difference;
     time_t now;
     struct tm *tm;
     unsigned long lengthOfFile, counter;
@@ -82,7 +81,6 @@ int mvOrCpOneFile(char* Spath, char* Dpath, int choice) //choice = 0 -> mv, choi
                 if(tm->tm_sec != sec) // Si le temps différent du temps précédent
                 {
                     speed = ((percentage - beforePercentage)*0.01*lengthOfFile)/1000000;
-                    before = clock();
                     beforePercentage = percentage;
                     
                     now = time(0);
