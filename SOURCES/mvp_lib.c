@@ -43,7 +43,7 @@ int mvOrCpOneFile(char* Spath, char* Dpath, int choice) //choice = 0 -> mv, choi
     if(Dpath[strlen(Dpath) - 1] == '/')
     {
         fileName = getWithoutSlashFromPath(Spath);
-        DPathWithFN = concatanation(Dpath, fileName);
+        DPathWithFN = concatenation(Dpath, fileName);
         Dfile = fopen(DPathWithFN, "w");
         free(DPathWithFN);
     }
@@ -137,10 +137,10 @@ int mvOrCpOneFolder(char* Spath, char* Dpath, int choice)
         }
         else
         {
-            if(Dpath[strlen(Dpath) - 1] == '/')
-                Dpath = concatanation(concatanation(Dpath, "/"), getWithSlashFromPath(Spath));
+            if(Dpath[strlen(Dpath) - 1] != '/')
+                Dpath = concatenation(concatenation(Dpath, "/"), getWithSlashFromPath(Spath));
             else
-                Dpath = concatanation(Dpath, getWithSlashFromPath(Spath));
+                Dpath = concatenation(Dpath, getWithSlashFromPath(Spath));
 
             mkdir(Dpath, 0755); //create the directory with the original name Spath
         }
@@ -151,12 +151,8 @@ int mvOrCpOneFolder(char* Spath, char* Dpath, int choice)
             if(dir->d_type == DT_DIR && strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
             {
                 struct stat st = {0};
-                char *SpathWD = concatanation(concatanation(Spath, dir->d_name), "/");
-                char *DpathWD = concatanation(concatanation(Dpath, dir->d_name), "/");
-                if(stat(DpathWD, &st) == -1)
-                {
-                    mkdir(DpathWD, 0755);
-                }
+                char *SpathWD = concatenation(concatenation(Spath, dir->d_name), "/");
+                char *DpathWD = concatenation(concatenation(Dpath, dir->d_name), "/");
                 mvOrCpOneFolder(SpathWD, DpathWD, choice);
 
                 if(choice == 0)
@@ -164,8 +160,8 @@ int mvOrCpOneFolder(char* Spath, char* Dpath, int choice)
             }
             else if(dir->d_type == DT_REG)
             {
-                char *SpathWF = concatanation(Spath, dir->d_name);
-                char *DpathWF = concatanation(Dpath, dir->d_name);
+                char *SpathWF = concatenation(Spath, dir->d_name);
+                char *DpathWF = concatenation(Dpath, dir->d_name);
                 printf("\nMoving %s \n", dir->d_name);
                 mvOrCpOneFile(SpathWF, DpathWF, choice);
             }
